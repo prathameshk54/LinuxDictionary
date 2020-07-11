@@ -1,5 +1,13 @@
 import requests 
 from urllib.parse import urlencode
+import re
+
+def strprint(string_):
+	string_ = re.sub('{bc}', ': ', string_)
+	string_ = re.sub('{ldquo}', '"', string_)
+	string_ = re.sub('{rdquo}', '"', string_)
+	string_ = re.sub("{([^{])*}", "", string_)
+	print(string_)
 
 def print_meaning(res):
 	#differnt verb dividers
@@ -14,13 +22,13 @@ def print_meaning(res):
 
 			for l in lists[0][1]['dt']:
 				if l[0] == 'text':
-					print(l[1])
+					strprint(l[1])
 				else:
 					continue
 
 	print('Short Defination: ')
 	for sdef in res['shortdef']:
-		print(sdef)
+		strprint(sdef)
 
 def get_meaning(word='welcome', flag = 0):
 	url = 'https://dictionaryapi.com/api/v3/references/sd2/json/'+word+'?key=880ce8f2-178b-40a5-a675-6862884fd925'
@@ -49,6 +57,9 @@ def get_meaning(word='welcome', flag = 0):
 			return
 
 	for res in result:
+		print(' ')
+		print(' ')
+		print(' ')
 		print_meaning(res)
 
 
