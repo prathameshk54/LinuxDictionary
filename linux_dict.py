@@ -1,6 +1,7 @@
 import requests 
 from urllib.parse import urlencode
 import re
+import sys
 
 def strprint(string_):
 	string_ = re.sub('{bc}', ': ', string_)
@@ -32,8 +33,11 @@ def print_meaning(res):
 
 def get_meaning(word='welcome', flag = 0):
 	url = 'https://dictionaryapi.com/api/v3/references/sd2/json/'+word+'?key=880ce8f2-178b-40a5-a675-6862884fd925'
-
-	response = requests.get(url)
+	try:
+		response = requests.get(url)
+	except:
+		print('Error in fetching the results, check your connectivity')
+		return
 	result = response.json()
 	if response.status_code != 200:
 		print('Something went wrong: HTTP Error Code: %d' %(response.status_code))
@@ -63,5 +67,9 @@ def get_meaning(word='welcome', flag = 0):
 		print_meaning(res)
 
 
-word = input('Enter the word you want to search: ')
-get_meaning(word)
+#word = input('Enter the word you want to search: ')
+word = " ".join(sys.argv[1:])
+if(len(sys.argv) <= 1):
+	print('Please provide the word to be searched')
+else:
+	get_meaning(word)
