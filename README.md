@@ -8,3 +8,5 @@ Using API to create easy access to a dictionary from terminal/shell in Linux
 5. make dict.sh executable by typing *chmod u+x dict.sh*  
 6. Type _dict yourword_ and results will be printed
 
+
+Edit: if this doesn't work, write ./dict.sh instead of dict.sh in alias in point 4.
