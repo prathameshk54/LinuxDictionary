@@ -42,6 +42,12 @@ def get_meaning(word='welcome', flag = 0):
 	if response.status_code != 200:
 		print('Something went wrong: HTTP Error Code: %d' %(response.status_code))
 		return
+	try:
+		if type(result[0]) == str:
+			kjj = 1
+	except:
+		print('Sorry!')
+		return
 	if type(result[0]) == str:
 		if (flag == 1 or len(result) == 0):
 			print('Sorry, we did not find any meaning matching your word')
