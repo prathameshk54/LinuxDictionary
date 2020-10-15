@@ -9,4 +9,6 @@ Using API to create easy access to a dictionary from terminal/shell in Linux
 6. Type _dict yourword_ and results will be printed
 
 
-Edit: if this doesn't work, write ./dict.sh instead of dict.sh in alias in point 4.
+Edit: if this doesn't work, write ./dict.sh instead of dict.sh in alias in point 4. 
+Something like this
+4. Add *alias dict='./dict.sh'* in the end of your *.bashrc* file
