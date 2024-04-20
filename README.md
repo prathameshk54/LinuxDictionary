@@ -1,5 +1,5 @@
 # LinuxDictionary  
-Using API to create easy access to a dictionary from terminal/shell in Linux  
+Using REST API to create easy access to a dictionary from terminal/shell in Linux  
 
 1. Open dict.sh  
 2. Change the *path* in the file with the *path of your python file*
